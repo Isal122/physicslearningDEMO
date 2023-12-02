@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
+<html lang="en" dir="ltr">
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Website Layout | CodingLab</title>
+    <title> Website Layout | CodingLab</title> 
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
     <style>
@@ -65,7 +63,7 @@ nav .menu{
   color: white;
 }
 .img{
-  background: url('https://cdn.discordapp.com/attachments/1176092972522156102/1176093093909495918/bgmodul1.png?ex=6576d78c&is=6564628c&hm=652c3a2faa092307cf129283df3a5ec3d5c486a7fd2b2a0dea540e827f438e1f&')no-repeat;
+  background: url('https://cdn.discordapp.com/attachments/1176092972522156102/1176093267918602271/bgmodul3.jpg?ex=6576d7b5&is=656462b5&hm=0324896c0786f1587d4cb618bd5da910455733af5a5670b6292500b15bfe90bd&')no-repeat;
   width: 100%;
   height: 100vh;
   background-size: cover;
@@ -89,24 +87,27 @@ nav .menu{
 }
 .center .title {
     color: #fff;
-    font-size: 60px;
+    font-size: 55px;
     font-weight: 800;
     text-shadow: 0 0 16px rgba(255, 251, 167, 0.8);
 }
 .center .sub_title{
   color: #fff;
-  font-size: 20px;
+  font-size: px;
   font-weight: 400;
 }
-.center .btns{
-  margin-top: 32px;
+.center .btns {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .center .btns button{
-  height: 100px;
-  width: 160px;
-  border-radius: 9px;
+  height: 50px;
+  width: 500px;
+  border-radius: 20px;
   border: none;
-  margin: 0 20px;
+  margin: 10px;
   font-size: 18px;
   font-weight: 700;
   padding: 0 20px;
@@ -135,40 +136,38 @@ nav .menu{
     color: darkblue;
 }
     </style>
-</head>
+
+  </head>
 <body>
-<nav>
+  <nav>
     <div class="menu">
-        <div class="logo">
-            <a href="#">Physics Learning</a>
-        </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><span sec:authorize="isAuthenticated">
-                <a th:href="@{/logout}">Logout</a></span>
-            </li>
-        </ul>
+      <div class="logo">
+        <a href="#">Physics Learning</a>
+      </div>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Login</a></li>
+      </ul>
     </div>
-</nav>
-<div class="img"></div>
-<div class="center">
+  </nav>
+  <div class="img"></div>
+  <div class="center">
     <div class="title">Physics Learning</div>
     <div class="sub_title">Physics Alliance '21</div>
     <div class="btns">
-        <button onclick="redirectToMateri()">Materi</button>
-        <button>Latihan Soal</button>
-        <button>Donasi</button>
+      <button>E-book Fisika</button>
+      <button onclick="redirectToSemester()">Catatan Fisika</button>
+      <button>Jawaban-jawaban (Quiz, UTS, UAS, dll)</button>
     </div>
-</div>
-<script th:inline="javascript">
-    function redirectToMateri() {
-        var materiUrl = /*[[@{/materi}]]*/ 'materi.html';
-        window.location.href = materiUrl;
-    }
-</script>
+  </div>
 
-
+  <script th:inline="javascript">
+    function redirectToSemester() {
+      var semesterUrl = /*[[@{/semester}]]*/ 'semester.html';
+      window.location.href = semesterUrl;
+     }
+  </script>
 
 </body>
 </html>

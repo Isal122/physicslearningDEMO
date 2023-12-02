@@ -53,4 +53,13 @@ public class UserController {
 		return "admin";
 	}
 
+	@GetMapping("/materi")
+	public String materi() {
+		return "materi";
+	}
+
+	@GetMapping("/semester")
+	public String semester() {
+		return "semester";
+	}
 }
