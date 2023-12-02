@@ -1,28 +1,11 @@
-<!DOCTYPE html>
-<html lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration</title>
-
-  <link rel="stylesheet" th:href="@{/css/styles2.css}" type="text/css">
-  <style>
-    body {
+body {
     display: flex;
     justify-content: left;
     align-items: center;
     min-height: 100vh;
-    background: url('https://cdn.discordapp.com/attachments/1176092972522156102/1176093093909495918/bgmodul1.png?ex=6576d78c&is=6564628c&hm=652c3a2faa092307cf129283df3a5ec3d5c486a7fd2b2a0dea540e827f438e1f&') no-repeat;
+    background: url(bg.png) no-repeat;
     background-size: cover;
     background-position: center;
-    th:style="'background: url(' + 'https://cdn.discordapp.com/attachments/1176092972522156102/1176093093909495918/bgmodul1.png?ex=6576d78c&is=6564628c&hm=652c3a2faa092307cf129283df3a5ec3d5c486a7fd2b2a0dea540e827f438e1f&' + ') no-repeat;
-    background-size: cover;
-    background-position: center; '">
-
 }
 
 .container {
@@ -35,10 +18,10 @@
     top: 50%;
     left: 50%;
     border-radius: 10px;
-    padding: 25px;
+    padding: 25px; 
     transform: translate(-50%, -50%);
   }
-
+  
 .container h1 {
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
@@ -160,49 +143,3 @@ nav .menu {
     background: rgb(228, 203, 103);
     color: white;
 }
-
-  </style>
-</head>
-
-<body>
-<nav>
-  <div class="menu">
-    <div class="logo">
-      <a href="#">Physics Learning</a>
-    </div>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Login</a></li>
-    </ul>
-  </div>
-</nav>
-
-<div class="container">
-  <h1>Registration</h1>
-  <form
-          th:action="@{/registration}"
-          method="post"
-          class="registration-form"
-          th:object="${user}"
-  >
-    <div class="form-group">
-      <label for="fullname">Full Name:</label>
-      <input type="text" id="fullname" name="fullname" th:field="*{fullname}" required>
-      <i class='bx bxs-user'></i>
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" th:field="*{email}" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password" th:field="*{password}" required>
-    </div>
-    <button type="submit" value="Register">Register</button>
-  </form>
-  <p>Already Registered? <a href="login.html">Login here</a></p>
-</div>
-</body>
-
-</html>
