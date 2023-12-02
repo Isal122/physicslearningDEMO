@@ -160,6 +160,13 @@ nav .menu {
     background: rgb(228, 203, 103);
     color: white;
 }
+.message {
+            background-color: #45b6fe;
+            color: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
 
   </style>
 </head>
@@ -179,6 +186,9 @@ nav .menu {
 </nav>
 
 <div class="container">
+  <div class="message" th:if="${message != null}">
+    [[${message}]]
+  </div>
   <h1>Registration</h1>
   <form
           th:action="@{/registration}"
