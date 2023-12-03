@@ -36,25 +36,59 @@
         h2 {
             color: #45b6fe;
         }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #45b6fe;
+            text-align: center;
+            padding: 8px;
+
+        }
+
+        th {
+            background-color: #45b6fe;
+        }
 
         /* Add more styles and components for your dashboard here */
     </style>
 </head>
 <body>
+
     <div class="header">
         <h1>ADMIN Dashboard</h1>
     </div>
     <div class="container">
-        <h2>Welcome, [[${user.getFullname()}]]</h2>
+        <h2>Welcome, Admin [[${user.getFullname()}]]</h2>
         
         <span sec:authorize="isAuthenticated">
         <a th:href="@{/logout}">
          Logout
-        
         </a>
-        
         </span>
-
+        <a th:href="user-page">
+            To Dashboard
+        </a>
+        <h2>User List</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <!-- Add more columns as needed -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user : ${users}">
+                <td th:text="${user.getFullname}"></td>
+                <td th:text="${user.getEmail}"></td>
+                <!-- Add more columns as needed -->
+            </tr>
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

@@ -1,5 +1,7 @@
 <!doctype html>
-<html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>Physics Learning Website</title>
         <link rel="stylesheet" type="text/css" href="style.css">
@@ -127,18 +129,20 @@ h2 {
         </style>
     </head>
     <body>
-        <nav>
-            <div class="menu">
-                <div class="logo">
-                    <a href="#">Physics Learning</a>
-                </div>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Login</a></li>
-                </ul>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a th:href="@{user-page}">Physics Learning</a>
             </div>
-        </nav>    
+            <ul>
+                <li><a th:href="@{user-page}">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><span sec:authorize="isAuthenticated">
+                <a th:href="@{/logout}">Logout</a></span>
+                </li>
+            </ul>
+        </div>
+    </nav>
         <div class="content">
             <h1>Latihan Soal</h1>
             <h2>Physics Alliance '21</h2>
@@ -147,10 +151,6 @@ h2 {
                 <button>Semester 2</button>
                 <button>Semester 3</button>
                 <button>Semester 4</button>
-                <button>Semester 5</button>
-                <button>Semester 6</button>
-                <button>Semester 7</button>
-                <button>Semester 8</button>
             </div>
         </div>
     </body>

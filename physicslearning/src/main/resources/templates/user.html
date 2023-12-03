@@ -140,10 +140,10 @@ nav .menu{
 <nav>
     <div class="menu">
         <div class="logo">
-            <a href="#">Physics Learning</a>
+            <a th:href="@{user-page}">Physics Learning</a>
         </div>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a th:href="@{user-page}">Home</a></li>
             <li><a href="#">About Us</a></li>
             <li><span sec:authorize="isAuthenticated">
                 <a th:href="@{/logout}">Logout</a></span>
