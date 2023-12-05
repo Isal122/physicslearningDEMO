@@ -144,7 +144,7 @@ nav .menu{
         </div>
         <ul>
             <li><a th:href="@{user-page}">Home</a></li>
-            <li><a href="#">About Us</a></li>
+            <li><a th:href="@{about-us}">About Us</a></li>
             <li><span sec:authorize="isAuthenticated">
                 <a th:href="@{/logout}">Logout</a></span>
             </li>
@@ -153,11 +153,11 @@ nav .menu{
 </nav>
 <div class="img"></div>
 <div class="center">
-    <div class="title">Physics Learning</div>
+    <div class="title">Welcome to Physics Learning!</div>
     <div class="sub_title">Physics Alliance '21</div>
     <div class="btns">
         <button onclick="redirectToMateri()">Materi</button>
-        <button>Latihan Soal</button>
+        <button>Forum</button>
         <button>Donasi</button>
     </div>
 </div>

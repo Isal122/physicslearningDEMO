@@ -102,29 +102,54 @@ h2 {
     letter-spacing: 2px;
     text-decoration: none;
     font-family: 'Trebuchet MS', sans-serif;
+    padding: 10px 20px;
 }
 
-.semester-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.semester-buttons button {
-    margin: 20px;
-    padding: 10px 30px;
-    font-size: 25px;
-    background-color: #fff;
-    color: #2b1055;
-    border: #fff;
-    border-radius: 10px;
+.button {
+    margin: 15px;
+    padding: 10px 20px;
+    font-size: 15px;
+    height: 60px;
+    width: 300px;
+    position: relative;
+    background-color: transparent;
     cursor: pointer;
-    font-family: 'Times New Roman', Times, serif;
+    border: 2px solid #fff;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
 }
 
-.semester-buttons button semester-1 semester-3 semester-5 semester-7{
-    background-color: #7597de;
+.btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #fff;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+}
+
+.button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #252525;
+    border: none;
+}
+
+.type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
 }
         </style>
     </head>
@@ -138,20 +163,62 @@ h2 {
                 <li><a th:href="@{user-page}">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><span sec:authorize="isAuthenticated">
-                <a th:href="@{/logout}">Logout</a></span>
+                    <a th:href="@{/logout}">Logout</a></span>
                 </li>
             </ul>
         </div>
     </nav>
-        <div class="content">
-            <h1>Latihan Soal</h1>
-            <h2>Physics Alliance '21</h2>
-            <div class="semester-buttons">
-                <button>Semester 1</button>
-                <button>Semester 2</button>
-                <button>Semester 3</button>
-                <button>Semester 4</button>
-            </div>
-        </div>
+    <div class="content">
+        <h1>Semester berapa kamu?</h1>
+        <h2>Physics Alliance '21</h2>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem1()" class="btn-txt">Semester 1</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem2()" class="btn-txt">Semester 2</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem3()" class="btn-txt">Semester 3</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem4()" class="btn-txt">Semester 4</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem5()" class="btn-txt">Semester 5</span>
+        </button>
+        <button class="button type1">
+            <span class="btn-txt">Semester 6</span>
+        </button>
+        <button class="button type1">
+            <span class="btn-txt">Semester 7</span>
+        </button>
+        <button class="button type1">
+            <span class="btn-txt">Semester 8</span>
+        </button>
+    </div>
+
+    <script th:inline="javascript">
+        function redirectToMatkulSem1 () {
+        var matkulSem1 = /*[[@{/matkulsem1}]]*/ 'matkulsem1';
+        window.location.href = matkulSem1;
+        }
+        function redirectToMatkulSem2 () {
+        var matkulSem2 = /*[[@{/matkulsem2}]]*/ 'matkulsem2';
+        window.location.href = matkulSem2;
+        }
+        function redirectToMatkulSem3 () {
+        var matkulSem3 = /*[[@{/matkulsem3}]]*/ 'matkulsem3';
+        window.location.href = matkulSem3;
+        }
+        function redirectToMatkulSem4 () {
+        var matkulSem4 = /*[[@{/matkulsem4}]]*/ 'matkulsem4';
+        window.location.href = matkulSem4;
+        }
+        function redirectToMatkulSem5 () {
+        var matkulSem5 = /*[[@{/matkulsem5}]]*/ 'matkulsem5';
+        window.location.href = matkulSem5;
+        }
+    </script>
+
     </body>
 </html>

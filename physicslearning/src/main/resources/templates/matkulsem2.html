@@ -1,0 +1,214 @@
+<!doctype html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Physics Learning Website</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+            @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap);
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: url(https://cdn.discordapp.com/attachments/1176092972522156102/1176093093909495918/bgmodul1.png?ex=6580120c&is=656d9d0c&hm=4a6c21a35ea3efc86aa8f65cf986dcd3c9eee53ecb49f76d93e0696c931a4e2c&) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+nav {
+    background: #030825ca;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 12;
+    position: absolute;
+    top: 0%;
+}
+
+nav .menu {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.menu .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-left: 6px;
+}
+
+.menu ul li:first-child {
+    margin-left: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 8px 13px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background: rgb(228, 203, 103);
+    color: white;
+}
+
+.content {
+    text-align: center;
+    padding: 10em;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2ex;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: small;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 10px 20px;
+}
+
+.button {
+    margin: 15px;
+    padding: 10px 20px;
+    font-size: 15px;
+    height: 60px;
+    width: 300px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #fff;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #fff;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+}
+
+.button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #252525;
+    border: none;
+}
+
+.type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}
+
+        </style>
+</head>
+<body>
+<nav>
+  <div class="menu">
+    <div class="logo">
+      <a th:href="@{user-page}">Physics Learning</a>
+    </div>
+    <ul>
+      <li><a th:href="@{user-page}">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><span sec:authorize="isAuthenticated">
+                    <a th:href="@{/logout}">Logout</a></span>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="content">
+  <h1>Pilih matakuliah kamu!</h1>
+  <h2>Physics Alliance '21</h2>
+  <button class="button type1">
+    <span id="googleDriveLinkFismat2" class="btn-txt">Fisika Matematika II</span>
+  </button>
+  <button class="button type1">
+    <span id="googleDriveLinkFisdas2" class="btn-txt">Fisika Dasar II</span>
+  </button>
+  <button class="button type1">
+    <span id="googleDriveLinkTermo" class="btn-txt">Termodinamika</span>
+  </button>
+  <button class="button type1">
+    <span id="googleDriveLinkEfd2" class="btn-txt">Eks. Fisika Dasar II</span>
+  </button>
+  <button class="button type1">
+    <span id="googleDriveLinkKdba" class="btn-txt">KDBA</span>
+  </button>
+</div>
+<script th:inline="javascript">
+    document.getElementById("googleDriveLinkEfd2").onclick = function() {
+        var googleDriveUrlEfd2 = "https://drive.google.com/drive/folders/15D4J7-urytQOLdoae3f8hZ3KvIzbjNAE?usp=sharing";
+        window.location.href = googleDriveUrlEfd1;
+    }
+    ;document.getElementById("googleDriveLinkTermo").onclick = function() {
+        var googleDriveUrlTermo = "https://drive.google.com/drive/folders/1MMKVwFt9vbl3XV04lCLzEk13cd8JGa0a?usp=sharing";
+        window.location.href = googleDriveUrlTermo;
+    };
+    document.getElementById("googleDriveLinkFisdas2").onclick = function() {
+        var googleDriveUrlFisdas2 = "https://drive.google.com/drive/folders/1vjIoh_9LQ1pu2kFk7y6jBiGONbClxfkH?usp=sharing";
+        window.location.href = googleDriveUrlFisdas2;
+    };
+    document.getElementById("googleDriveLinkFismat2").onclick = function() {
+        var googleDriveUrlFismat2 = "https://drive.google.com/drive/folders/1MV6Ji1T6BnPAOH2w3Z7-Fv9GGA1wj8um?usp=sharing";
+        window.location.href = googleDriveUrlFismat2;
+    };
+    document.getElementById("googleDriveLinkKdba").onclick = function() {
+        var googleDriveUrlKdba = "https://drive.google.com/drive/folders/1jr_iTkv1w4Tql5Cv8vV_V2fR1o4R02r2?usp=sharing";
+        window.location.href = googleDriveUrlKdba;
+    };
+</script>
+</body>
+</html>

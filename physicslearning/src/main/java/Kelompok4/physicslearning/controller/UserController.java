@@ -73,6 +73,25 @@ public class UserController {
 	@GetMapping("/error")
 	public String error () {return "error";}
 
+	@GetMapping("about-us")
+	public String abousUs () {return "aboutUs";}
+
+	@GetMapping("matkulsem1")
+	public String matkulSem1 () {return "matkulsem1";}
+
+	@GetMapping("matkulsem2")
+	public String matkulSem2 () {return "matkulsem2";}
+
+	@GetMapping("matkulsem3")
+	public String matkulSem3 () {return "matkulsem3";}
+
+	@GetMapping("matkulsem4")
+	public String matkulSem4 () {return "matkulsem4";}
+
+	@GetMapping("matkulsem5")
+	public String matkulSem5 () {return "matkulsem5";}
+
+
 
 
 
