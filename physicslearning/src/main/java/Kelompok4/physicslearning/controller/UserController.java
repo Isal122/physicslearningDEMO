@@ -91,6 +91,12 @@ public class UserController {
 	@GetMapping("matkulsem5")
 	public String matkulSem5 () {return "matkulsem5";}
 
+	@GetMapping("donasi")
+	public String donasi () {return "donasi";}
+
+	@GetMapping("ebook")
+	public String ebook () {return "ebook";}
+
 
 
 

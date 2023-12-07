@@ -148,9 +148,9 @@ nav .menu{
       </div>
       <ul>
         <li><a th:href="@{user-page}">Home</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a th:href="@{about-us}">About Us</a></li>
         <li><span sec:authorize="isAuthenticated">
-                  <a th:href="@{/logout}">Logout</a></span>
+                <a th:href="@{/logout}">Logout</a></span>
         </li>
       </ul>
     </div>
@@ -160,7 +160,7 @@ nav .menu{
     <div class="title">Physics Learning</div>
     <div class="sub_title">Physics Alliance '21</div>
     <div class="btns">
-      <button>E-book Fisika</button>
+      <button onclick="redirectToEbook()" >E-book dan PPT Fisika</button>
       <button onclick="redirectToSemester()">Catatan Fisika</button>
       <button>Jawaban-jawaban (Quiz, UTS, UAS, dll)</button>
     </div>
@@ -171,6 +171,10 @@ nav .menu{
       var semesterUrl = /*[[@{/semester}]]*/ 'semester.html';
       window.location.href = semesterUrl;
      }
+     function redirectToEbook() {
+        var ebookUrl = /*[[@{/ebook}]]*/ 'ebook.html';
+        window.location.href = ebookUrl;
+    }
   </script>
 
 </body>

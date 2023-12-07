@@ -161,9 +161,9 @@ h2 {
             </div>
             <ul>
                 <li><a th:href="@{user-page}">Home</a></li>
-                <li><a href="#">About Us</a></li>
+                <li><a th:href="@{about-us}">About Us</a></li>
                 <li><span sec:authorize="isAuthenticated">
-                    <a th:href="@{/logout}">Logout</a></span>
+                <a th:href="@{/logout}">Logout</a></span>
                 </li>
             </ul>
         </div>

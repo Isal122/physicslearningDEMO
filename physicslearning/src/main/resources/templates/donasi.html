@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Website Layout | CodingLab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins',sans-serif;
+}
+
+.card-container {
+  display: flex;
+  gap: 20px; /* Spasi antar kartu */
+  justify-content: space-between; /* Cards will be justified */
+  width: 100%; /* Take up the full width of the container */
+  padding: 20px; /* Optional padding for better spacing */
+  box-sizing: border-box; /* Include padding and border in the total width and height */
+}
+
+.card {
+  width: 360px;
+  height: 200px;
+  perspective: 1000px;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.999s;
+}
+
+.card:hover .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.card-front {
+  background: linear-gradient(45deg, #151796, #13cae2);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  background: linear-gradient(45deg, #e88e6e, #ecd96e);
+  color: #fff;
+  display: flex;
+  align-items: center;
+
+  border-radius: 10px;
+  justify-content: center;
+  font-size: 24px;
+  transform: rotateY(180deg);
+}
+
+::selection{
+  color: #000;
+  background: #fff;
+}
+nav{
+  position: fixed;
+  background: #030825ca;
+  width: 100%;
+  padding: 10px 0;
+  z-index: 12;
+}
+nav .menu{
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.menu .logo a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 750;
+}
+.menu ul{
+  display: inline-flex;
+}
+.menu ul li{
+  list-style: none;
+  margin-left: 6px;
+}
+.menu ul li:first-child{
+  margin-left: 0px;
+}
+.menu ul li a{
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 8px 13px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+.menu ul li a:hover{
+  background: rgb(228, 203, 103);
+  color: white;
+}
+.img{
+  background: url('https://cdn.discordapp.com/attachments/1176092972522156102/1176093267918602271/bgmodul3.jpg?ex=65801235&is=656d9d35&hm=1844ca7c69994dc663beabd53840636e56aaa12d4ec611a147db726a8af37cd6&')no-repeat;
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.img::before{
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+.center{
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  padding: 0 20px;
+  text-align: center;
+}
+.center .title {
+    color: #fff;
+    font-size: 55px;
+    font-weight: 800;
+    text-shadow: 0 0 16px rgba(255, 251, 167, 0.8);
+}
+.center .sub_title{
+  color: #fff;
+  font-size: px;
+  font-weight: 400;
+}
+.center .btns {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.center .btns button{
+  height: 50px;
+  width: 500px;
+  border-radius: 20px;
+  border: none;
+  margin: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0 20px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+}
+.center .btns button:first-child {
+    background: #FFFFC2;
+    color: darkblue;
+}
+.center .btns button:first-child:hover {
+    background: #FFFFC2;
+    color: darkblue;
+}
+.center .btns button:nth-child(2) { /* Ganti dengan ":nth-child(2)" untuk memilih button kedua */
+    background: #FFFFC2;
+    color: darkblue;
+}
+.center .btns button:nth-child(2):hover { /* Ganti dengan ":nth-child(2):hover" untuk memilih button kedua saat hover */
+    background: #FFFFC2;
+    color: darkblue;
+}
+.center .btns button:last-child {
+    background: #FFFFC2;
+    color: darkblue;
+}
+
+.thank-you {
+  margin-top: 30px;
+  color: #fff;
+  font-size: 18px;
+}
+
+.love-emote {
+  font-size: 24px;
+  color: #ff0000; /* merah */
+}
+    </style>
+</head>
+<body>
+<nav>
+    <div class="menu">
+        <div class="logo">
+            <a th:href="@{user-page}">Physics Learning</a>
+        </div>
+        <ul>
+            <li><a th:href="@{user-page}">Home</a></li>
+            <li><a th:href="@{about-us}">About Us</a></li>
+            <li><span sec:authorize="isAuthenticated">
+                <a th:href="@{/logout}">Logout</a></span>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="img">
+    <div class="center">
+        <div class="title">
+            <h3>Physics Learning</h3>
+            <h5>DONASI</h5><div>
+
+
+            <div class="card-container justify-content-center ms-3">
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <p>Mandiri</p>
+                            </div>
+                            <div class="card-back">
+                                <p>1060014400470</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <p>BNI</p>
+                            </div>
+                            <div class="card-back">
+                                <p>1319094888</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <p>DANA</p>
+                            </div>
+                            <div class="card-back">
+                                <p>089656273420</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card mx-auto">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <p>GOPAY</p>
+                            </div>
+                            <div class="card-back">
+                                <p>089656273420</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div></div>
+            <p class="thank-you">Terima Kasih Sudah Mendukung kami
+                <span class="love-emote">&#10084;&#65039;</span></p>
+        </div>
+</body>
+</html>

@@ -157,8 +157,8 @@ nav .menu{
     <div class="sub_title">Physics Alliance '21</div>
     <div class="btns">
         <button onclick="redirectToMateri()">Materi</button>
-        <button>Forum</button>
-        <button>Donasi</button>
+        <button onclick="redirectToForum()">Forum</button>
+        <button onclick="redirectToDonasi()">Donasi</button>
     </div>
 </div>
 <script th:inline="javascript">
@@ -166,6 +166,15 @@ nav .menu{
         var materiUrl = /*[[@{/materi}]]*/ 'materi.html';
         window.location.href = materiUrl;
     }
+    function redirectToForum() {
+        var forumUrl = /*[[@{/forum}]]*/ 'index.html';
+        window.location.href = forumUrl;
+    }
+    function redirectToDonasi() {
+        var donasiUrl = /*[[@{/donasi}]]*/ 'donasi.html';
+        window.location.href = donasiUrl;
+    }
+
 </script>
 
 
