@@ -1,0 +1,224 @@
+<!doctype html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Physics Learning Website</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <style>
+            @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900&display=swap);
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    scroll-behavior: smooth;
+}
+body
+{
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: url('https://cdn.discordapp.com/attachments/1176092972522156102/1176093093909495918/bgmodul1.png?ex=6576d78c&is=6564628c&hm=652c3a2faa092307cf129283df3a5ec3d5c486a7fd2b2a0dea540e827f438e1f&') no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+nav {
+    background: #030825ca;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 12;
+    position: absolute;
+    top: 0%;
+}
+
+nav .menu {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.menu .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 750;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu ul li {
+    margin-left: 6px;
+}
+
+.menu ul li:first-child {
+    margin-left: 0;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 300;
+    padding: 8px 13px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.menu ul li a:hover {
+    background: rgb(228, 203, 103);
+    color: white;
+}
+
+.content {
+    text-align: center;
+    padding: 10em;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 2ex;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 3em;
+    letter-spacing: 3px;
+    text-transform: capitalize;
+    text-decoration: none;
+}
+
+h2 {
+    font-size: small;
+    text-transform: capitalize;
+    letter-spacing: 2px;
+    text-decoration: none;
+    font-family: 'Trebuchet MS', sans-serif;
+    padding: 10px 20px;
+}
+
+.button {
+    margin: 15px;
+    padding: 10px 20px;
+    font-size: 15px;
+    height: 60px;
+    width: 300px;
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    border: 2px solid #fff;
+    overflow: hidden;
+    border-radius: 30px;
+    color: #fff;
+    transition: all 0.5s ease-in-out;
+}
+
+.btn-txt {
+    z-index: 1;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.type1::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 0.5s ease-in-out;
+    background-color: #fff;
+    border-radius: 30px;
+    visibility: hidden;
+    height: 10px;
+    width: 10px;
+    z-index: -1;
+}
+
+.button:hover {
+    box-shadow: 1px 1px 200px #252525;
+    color: #252525;
+    border: none;
+}
+
+.type1:hover::after {
+    visibility: visible;
+    transform: scale(100) translateX(2px);
+}
+        </style>
+    </head>
+    <body>
+    <nav>
+        <div class="menu">
+            <div class="logo">
+                <a th:href="@{user-page}">Physics Learning</a>
+            </div>
+            <ul>
+                <li><a th:href="@{user-page}">Home</a></li>
+                <li><a th:href="@{about-us}">About Us</a></li>
+                <li><span sec:authorize="isAuthenticated">
+                <a th:href="@{/logout}">Logout</a></span>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="content">
+        <h1>Semester berapa kamu?</h1>
+        <h2>Physics Alliance '21</h2>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem1J()" class="btn-txt">Semester 1</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem2J()" class="btn-txt">Semester 2</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem3J()" class="btn-txt">Semester 3</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem4J()" class="btn-txt">Semester 4</span>
+        </button>
+        <button class="button type1">
+            <span onclick="redirectToMatkulSem5J()" class="btn-txt">Semester 5</span>
+        </button>
+        <button class="button type1">
+            <span class="btn-txt">Semester 6</span>
+        </button>
+        <button class="button type1">
+            <span class="btn-txt">Semester 7</span>
+        </button>
+        <button class="button type1">
+            <span class="btn-txt">Semester 8</span>
+        </button>
+    </div>
+
+    <script th:inline="javascript">
+        function redirectToMatkulSem1J () {
+        var matkulSem1J = /*[[@{/matkulsem1j}]]*/ 'matkulsem1j';
+        window.location.href = matkulSem1J;
+        }
+        function redirectToMatkulSem2J () {
+        var matkulSem2J = /*[[@{/matkulsem2j}]]*/ 'matkulsem2j';
+        window.location.href = matkulSem2J;
+        }
+        function redirectToMatkulSem3J () {
+        var matkulSem3J = /*[[@{/matkulsem3j}]]*/ 'matkulsem3j';
+        window.location.href = matkulSem3J;
+        }
+        function redirectToMatkulSem4J () {
+        var matkulSem4J = /*[[@{/matkulsem4j}]]*/ 'matkulsem4j';
+        window.location.href = matkulSem4J;
+        }
+        function redirectToMatkulSem5J () {
+        var matkulSem5J = /*[[@{/matkulsem5j}]]*/ 'matkulsem5j';
+        window.location.href = matkulSem5J;
+        }
+    </script>
+
+    </body>
+</html>

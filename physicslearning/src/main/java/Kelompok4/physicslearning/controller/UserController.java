@@ -70,6 +70,11 @@ public class UserController {
 		return "semester";
 	}
 
+	@GetMapping("/semesterj")
+	public String semesterj() {
+		return "semesterJ";
+	}
+
 	@GetMapping("/error")
 	public String error () {return "error";}
 
@@ -90,6 +95,21 @@ public class UserController {
 
 	@GetMapping("matkulsem5")
 	public String matkulSem5 () {return "matkulsem5";}
+
+	@GetMapping("matkulsem1j")
+	public String matkulSem1j () {return "matkulsem1j";}
+
+	@GetMapping("matkulsem2j")
+	public String matkulSem2j () {return "matkulsem2j";}
+
+	@GetMapping("matkulsem3j")
+	public String matkulSem3j () {return "matkulsem3j";}
+
+	@GetMapping("matkulsem4j")
+	public String matkulSem4j () {return "matkulsem4j";}
+
+	@GetMapping("matkulsem5j")
+	public String matkulSem5j () {return "matkulsem5j";}
 
 	@GetMapping("donasi")
 	public String donasi () {return "donasi";}

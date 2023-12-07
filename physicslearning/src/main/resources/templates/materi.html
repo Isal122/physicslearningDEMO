@@ -162,7 +162,7 @@ nav .menu{
     <div class="btns">
       <button onclick="redirectToEbook()" >E-book dan PPT Fisika</button>
       <button onclick="redirectToSemester()">Catatan Fisika</button>
-      <button>Jawaban-jawaban (Quiz, UTS, UAS, dll)</button>
+      <button onclick="redirectToSemesterJ()">Jawaban-jawaban (Quiz, UTS, UAS, dll)</button>
     </div>
   </div>
 
@@ -174,7 +174,11 @@ nav .menu{
      function redirectToEbook() {
         var ebookUrl = /*[[@{/ebook}]]*/ 'ebook.html';
         window.location.href = ebookUrl;
-    }
+     }
+     function redirectToSemesterJ() {
+      var semesterJUrl = /*[[@{/semesterj}]]*/ 'semesterJ.html';
+      window.location.href = semesterJUrl;
+     }
   </script>
 
 </body>
